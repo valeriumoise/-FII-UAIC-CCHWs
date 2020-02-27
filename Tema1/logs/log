@@ -1,0 +1,4 @@
+[2020-02-27T14:16:32.690Z] Server started running at http://127.0.0.1:8080/
+[2020-02-27T14:16:38.883Z] 127.0.0.1 requested /metrics.html. responded injecting metrics into template. Latency: 3ms
+[2020-02-27T14:16:40.486Z] 127.0.0.1 requested /log.html. responded injecting logs into template. Latency: 12ms
+[2020-02-27T14:16:43.464Z] 127.0.0.1 requested /index.html. responded injecting Unul din top cinci regrete oameni au este că ei nu au avut curajul de a fi adevăratul lor sine. into template. Latency: 1664ms

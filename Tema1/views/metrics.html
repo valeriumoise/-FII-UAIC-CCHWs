@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="data:,">
+    <title>Mashup</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Home</a>
+        <a href="log.html">Logs</a>
+        <a href="metrics.html">Metrics</a>
+    </header>
+    <div>
+        <table style="width:100%">
+            <tr>
+                <th>Page</th>
+                <th>Hits</th>
+                <th>Latency Mean (ms)</th>
+            </tr>
+            <tr>
+                <td align="center">Home</td>
+                <td align="center">{{home.hits}}</td>
+                <td align="center">{{home.latency}}</td>
+            </tr>
+            <tr>
+                <td align="center">Logs</td>
+                <td align="center">{{logs.hits}}</td>
+                <td align="center">{{logs.latency}}</td>
+            </tr>
+            <tr>
+                <td align="center">Metrics</td>
+                <td align="center">{{metrics.hits}}</td>
+                <td align="center">{{metrics.latency}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

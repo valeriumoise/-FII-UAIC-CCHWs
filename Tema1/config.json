@@ -1,0 +1,16 @@
+{
+    "ipstack": {
+        "key": "96c020e439e77843b6aac0234c366a38",
+        "api_base_url": "http://api.ipstack.com/",
+        "key_param_name": "access_key",
+        "request_limit": 10000
+    },
+    "adviceslip": {
+        "api_base_url": "https://api.adviceslip.com/advice"
+    },
+    "translateyadex": {
+        "key": "trnsl.1.1.20200220T155748Z.830d8eabbb029a4b.a9cec9557e3e3bfdad95513458142af93dcb342c",
+        "api_base_url": "https://translate.yandex.net",
+        "path": "/api/v1.5/tr.json/translate?"
+    }
+}

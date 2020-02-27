@@ -1,0 +1,1 @@
+npm install &&  echo "Server running at localhost:8080" && node app.js > logs/log
