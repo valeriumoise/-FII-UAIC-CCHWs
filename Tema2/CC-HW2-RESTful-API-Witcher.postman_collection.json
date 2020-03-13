@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "3d8569ba-69a0-4dbe-82f2-2568406df771",
+		"name": "CC-HW2-RESTful-API-Witcher",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "(Discovery) http://localhost:8080/api/v1/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET races) http://localhost:8080/api/v1/races",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/races",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"races"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET race by id) http://localhost:8080/api/v1/races/5e656cb79c62d618903cc847/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/races/5e656cb79c62d618903cc847/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"races",
+						"5e656cb79c62d618903cc847",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(POST human race) http://localhost:8080/api/v1/races",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Human2\",\n    \"otherNames\": [\n        \"Dh'oine\",\n        \"Dh'oinne\"\n    ],\n    \"languages\": [\n        \"Common Speech\",\n        \"Nilfgaardian language\",\n        \"Ofiri tongue\",\n        \"Skellige jargon\",\n        \"Zerrikanian dialect\"\n    ],\n    \"locations\": [\n        \"All of the known World\"\n    ],\n    \"avglifespan\": \"Less than a century\",\n    \"avgheight\": \"Varies\",\n    \"hairColor\": \"Varies\",\n    \"eyeColor\": \"Varies\",\n    \"distinctions\": [\n        \"Fertility\",\n        \"Versatility\",\n        \"Expansionism\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/races",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"races"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(PUT human race) http://localhost:8080/api/v1/races/5e657337a3d7de3ac4af494d/",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Human2\",\n    \"otherNames\": [\n        \"Dh'oine\",\n        \"Dh'oinne\"\n    ],\n    \"languages\": [\n        \"Common Speech\",\n        \"Nilfgaardian language\",\n        \"Ofiri tongue\",\n        \"Skellige jargon\",\n        \"Zerrikanian dialect\"\n    ],\n    \"locations\": [\n        \"All of the known World\"\n    ],\n    \"avglifespan\": \"Less than a century\",\n    \"avgheight\": \"Varies\",\n    \"hairColor\": \"Varies\",\n    \"eyeColor\": \"Varies (AFTER PUT)\",\n    \"distinctions\": [\n        \"Fertility\",\n        \"Versatility\",\n        \"Expansionism\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/races/5e657337a3d7de3ac4af494d/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"races",
+						"5e657337a3d7de3ac4af494d",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(DELETE race by id) http://localhost:8080/api/v1/races/5e6581d0fbf2275528f80ccf/",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/races/5e6581d0fbf2275528f80ccf/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"races",
+						"5e6581d0fbf2275528f80ccf",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET professions) http://localhost:8080/api/v1/professions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/professions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"professions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(POST witcher profession) http://localhost:8080/api/v1/professions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Witcher\",\n    \"description\": \"A witcher (Polish: wiedźmin) also known as a wiccan, hexer, vedymin, or witchman (Elder Speech: vatt'ghern), is someone who has undergone extensive training, ruthless mental and physical conditioning, and mysterious rituals (which take place at \\\"witcher schools\\\" such as Kaer Morhen) in preparation for becoming an itinerant monsterslayer for hire.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/professions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"professions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET witcher profession) http://localhost:8080/api/v1/professions/5e6586737bdf385570b67421/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Witcher\",\n    \"description\": \"A witcher (Polish: wiedźmin) also known as a wiccan, hexer, vedymin, or witchman (Elder Speech: vatt'ghern), is someone who has undergone extensive training, ruthless mental and physical conditioning, and mysterious rituals (which take place at \\\"witcher schools\\\" such as Kaer Morhen) in preparation for becoming an itinerant monsterslayer for hire.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/professions/5e6586737bdf385570b67421/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"professions",
+						"5e6586737bdf385570b67421",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(PUT witcher test) http://localhost:8080/api/v1/professions/5e6586b77bdf385570b67422/",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Witcher test\",\n    \"description\": \"A witcher (Polish: wiedźmin) also known as a wiccan, hexer, vedymin, or witchman (Elder Speech: vatt'ghern), is someone who has undergone extensive training, ruthless mental and physical conditioning..\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/professions/5e6586b77bdf385570b67422/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"professions",
+						"5e6586b77bdf385570b67422",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(DELETE witcher test) http://localhost:8080/api/v1/professions/5e6586b77bdf385570b67422/",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Witcher test\",\n    \"description\": \"A witcher (Polish: wiedźmin) also known as a wiccan, hexer, vedymin, or witchman (Elder Speech: vatt'ghern), is someone who has undergone extensive training, ruthless mental and physical conditioning..\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/professions/5e6586b77bdf385570b67422/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"professions",
+						"5e6586b77bdf385570b67422",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(POST character) http://localhost:8080/api/v1/characters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Geralt of Rivia\",\n    \"biography\": \"Geralt of Rivia was a legendary witcher of the School of the Wolf active throughout the 13th century. He loved the sorceress Yennefer, considered the love of his life despite their tumultuous relationship, and became Ciri's adoptive father.\",\n    \"aliases\": [\n        \"White Wolf\",\n        \"Gwynbleidd\",\n        \"White One\",\n        \"Butcher of Blaviken\",\n        \"Ravix of Fourhorn\",\n        \"Geralt Roger Eric du Haute-Bellegarde (the first name he wanted)\"\n    ],\n    \"hairColor\": [\n        \"Milk-white\"\n    ],\n    \"eyeColor\": [\n        \"Dark, unspecified color (books)\",\n        \"Green (comics, The Hexer)\",\n        \"Amber (games, Netflix's The Witcher)\"\n    ],\n    \"skin\": \"Pale\",\n    \"race\": \"5e656cb79c62d618903cc847\",\n    \"gender\": \"Male\",\n    \"profession\": [\"5e6586737bdf385570b67421\"],\n    \"abilities\": [\n        \"Superhuman abilities\",\n        \"Swordsmanship\",\n        \"Alchemy\",\n        \"Signs\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/characters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"characters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET character) http://localhost:8080/api/v1/characters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/characters/5e658c49e5ba20490c16dfbf/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"characters",
+						"5e658c49e5ba20490c16dfbf",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET character Geralt) http://localhost:8080/api/v1/characters/5e658c49e5ba20490c16dfbf/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/characters/5e658c49e5ba20490c16dfbf/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"characters",
+						"5e658c49e5ba20490c16dfbf",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(PUT character test) http://localhost:8080/api/v1/characters/5e6590ca00e3fe0e94471cad/",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Character\",\n    \"biography\": \"Lorem. Ipsum this was edited\",\n    \"aliases\": [\n        \"Lorem impsum\"\n    ],\n    \"race\": \"5e656cb79c62d618903cc847\",\n    \"gender\": \"Male\",\n    \"abilities\": [\n        \"Laziness\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/characters/5e6590ca00e3fe0e94471cad/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"characters",
+						"5e6590ca00e3fe0e94471cad",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(DELETE character test) http://localhost:8080/api/v1/characters/5e6590ca00e3fe0e94471cad/",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Character\",\n    \"biography\": \"Lorem. Ipsum this was edited\",\n    \"aliases\": [\n        \"Lorem impsum\"\n    ],\n    \"race\": \"5e656cb79c62d618903cc847\",\n    \"gender\": \"Male\",\n    \"abilities\": [\n        \"Laziness\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/characters/5e6590ca00e3fe0e94471cad/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"characters",
+						"5e6590ca00e3fe0e94471cad",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
