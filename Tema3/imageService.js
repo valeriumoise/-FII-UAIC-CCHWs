@@ -1,15 +1,16 @@
-const fs = require('fs')
-const formidable = require('formidable')
+const {callAnnotateImage} = require("./AppVision");
+const formidable = require('formidable');
+const crypto = require('crypto');
+const PassThrough = require('stream').PassThrough;
+
 
 async function handle(req, res) {
-    var form = new formidable.IncomingForm();
+    let form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
-        res.write('File uploaded');
-        console.log(files);
-        res.end();
+        callAnnotateImage(files.image.path, res,files.image.name);
     });
 }
 
 module.exports = {
     handle: handle
-}
+};

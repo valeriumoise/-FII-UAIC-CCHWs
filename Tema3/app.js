@@ -18,8 +18,8 @@ process.on('uncaughtException', function (err) {
 const server = http.createServer(async (req, res) => {
     const reqUrl = url.parse(req.url, true);
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.writeHead(200, 'OK', { 'Content-Type': 'text/html; charset=utf-8' });
     if (reqUrl.pathname.startsWith('/') && req.method == 'GET') {
+        res.writeHead(200, 'OK', { 'Content-Type': 'text/html; charset=utf-8' });
         await indexService.handle(req, res);
     } else if (reqUrl.pathname.startsWith('/upload') && req.method == 'POST') {
         await imageService.handle(req, res);
