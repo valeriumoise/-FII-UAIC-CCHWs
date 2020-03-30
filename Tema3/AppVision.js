@@ -1,5 +1,5 @@
 const {urlFile} = require("./utils/UrlConstructor");
-const {loadDataFromImage} = require("./Utils/DataExtract");
+const {loadDataFromImage} = require("./utils/DataExtract");
 const crypto = require('crypto');
 const path = require('path');
 const {config} = require("./config");
