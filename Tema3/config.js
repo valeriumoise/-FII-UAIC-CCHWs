@@ -1,6 +1,6 @@
 const config = {
     features: ["FACE_DETECTION", "LABEL_DETECTION", "IMAGE_PROPERTIES", "WEB_DETECTION", "TEXT_DETECTION", "PRODUCT_SEARCH"],
-    bucket: 'cloud_computing_uaic2',
+    bucket: 'cloud-uaic',
     hash_encoding: 'hex',
     hash_alg: 'sha1'
 };
