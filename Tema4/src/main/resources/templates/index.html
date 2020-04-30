@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<a href="/classroom/create">Create classroom</a>
+<h2>Join classroom</h2>
+<form action="#" th:action="@{/classroom/join}" th:object="${join}" method="post">
+    <p>Code: <input type="text" th:field="*{code}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+
+</form>
+
+<h1>Classroom that you joined</h1>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Owner</td>
+        <td>Description</td>
+        <td>Code</td>
+        <td>Open</td>
+    </tr>
+    <tr th:each="classroom: ${classroomsJoined}">
+        <td th:text="${classroom.getName()}"></td>
+        <td th:text="${classroom.getAuthor()}"></td>
+        <td th:text="${classroom.getDescription()}"></td>
+        <td th:text="${classroom.getCode()}"></td>
+        <td><a th:href="${classroom.getLink()}">Open</a></td>
+
+    </tr>
+</table>
+<h1>Classroom that you created</h1>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Code</td>
+        <td>Presence</td>
+        <td>Reports</td>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="classroom: ${classrooms}">
+        <td th:text="${classroom.getName()}"></td>
+        <td th:text="${classroom.getDescription()}"></td>
+        <td th:text="${classroom.getCode()}"></td>
+        <td>
+            <a th:href="${classroom.getPresenceLink()}">Make presence</a>
+        </td>
+        <td><a th:href="${classroom.getLastReport()}">Last report</a></td>
+        <td><a th:href="${classroom.getLinkGenerateReport()}">New report</a></td>
+
+    </tr>
+</table>
+
+</body>
+</html>

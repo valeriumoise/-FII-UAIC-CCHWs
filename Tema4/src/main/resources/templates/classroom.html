@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Make presence</h1>
+<form action="#" th:action="@{/user/presence}" th:object="${presence}" method="post">
+    <p>Code: <input type="text" th:field="*{code}"/></p>
+    <input th:field="*{id}">
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+
+</form>
+<h1>Your presences</h1>
+<table>
+    <tr>
+        <td>Date</td>
+        <td>Was present</td>
+    </tr>
+    <tr th:each="i: ${presences}">
+        <td th:text="${i.getDate()}"></td>
+        <td th:text="${i.isPresent()}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
