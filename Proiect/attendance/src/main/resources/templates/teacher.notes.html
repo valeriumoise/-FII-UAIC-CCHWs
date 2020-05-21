@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes </title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <script src="/js/commons.js"></script>
+    <style>
+        input {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="path-container">
+    <a href="/" class="path">/classrooms/</a>
+    <a class="path" th:href="'/teacher/classroom/'+${id}" th:text="${name}+'/'">classroomName</a>
+    <a class="pathActive" href="#">notes</a>
+</div>
+<div class="center">
+    <div class="search">
+        <input type="search" id="searchPersons" style="width: 90%" th:attr="data-id=${id}" placeholder="Search student">
+        <div class="center">
+            <a class="button" href="#" onclick="searchStudentsNotes()">Search</a>
+        </div>
+    </div>
+</div>
+
+<form id="notes" action="#" th:action="'/teacher/classroom/' + ${id} + '/notes'" th:object="${notes}"
+      method="post">
+    <button type="submit"><a class="button"> Save changes</a></button>
+    <table border=1>
+        <caption>Notes in this classroom</caption>
+        <tr>
+            <th>
+                Student name
+            </th>
+            <th th:each="value: ${header}" th:text="${value}">
+            </th>
+
+        </tr>
+        <th:block th:each="student,i : ${notes.values}">
+            <tr>
+                <td th:text="${student.name}">
+                    A
+                </td>
+                <input hidden th:field="*{values[__${i.index}__].id}">
+                <td th:each="noteStudent,j:${student.notes}">
+                    <input step="0.1" th:type="number" th:value="${notes.values[i.index].notes[j.index]}"
+                           th:field="*{values[__${i.index}__].notes[__${j.index}__]}">
+                </td>
+            </tr>
+        </th:block>
+
+
+    </table>
+
+</form>
+<div class="line">
+    <a class="button" th:href="'/teacher/classroom/'+${id}+'/notes'+${prevLink}" th:if="${!prevLink.isEmpty()}">Prev</a>
+    <p th:text="'Current page:'+${currentPage}"></p>
+    <p th:text="'Total pages:'+${totalPages}"></p>
+    <a class="button" th:href="'/teacher/classroom/'+${id}+'/notes'+${nextLink}" th:if="${!nextLink.isEmpty()}">Next</a>
+
+</div>
+</body>
+</html>

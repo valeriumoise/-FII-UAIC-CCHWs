@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher classroom</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="top">
+
+</div>
+<a class="path">/classrooms</a>
+<h1 class="title">Create a classroom</h1>
+
+<div class="center">
+    <form class="create" action="#" th:action="@{/classroom/create}" th:object="${classroom}" method="post">
+        <p>Name: <input type="text" th:field="*{name}"/></p>
+        <p>Description: <input type="text" th:field="*{description}"/></p>
+        <p>
+            <button type="submit"><a class="button">Submit</a></button>
+            <button type="reset"><a class="button">Reset</a></button>
+        </p>
+    </form>
+</div>
+<h1 class="title">Classroom that you created</h1>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Join code</td>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="classroom: ${classrooms}">
+        <td th:text="${classroom.getName()}"></td>
+        <td th:text="${classroom.getDescription()}"></td>
+        <td th:text="${classroom.getCode()}"></td>
+        <td>
+            <a class="button" th:href="${'teacher/classroom/'+classroom.getId()}">More</a>
+        </td>
+        <!--        <td>-->
+        <!--            <a th:href="${classroom.getPresenceLink()}">Make presence</a>-->
+        <!--        </td>-->
+        <!--        <td><a th:href="${classroom.getLastReport()}">Last report</a></td>-->
+        <!--        <td><a th:href="${classroom.getLinkGenerateReport()}">New report</a></td>-->
+
+    </tr>
+</table>
+
+</body>
+<script>
+
+
+</script>
+</html>

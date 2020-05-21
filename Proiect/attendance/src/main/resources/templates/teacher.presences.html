@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View presences</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <script src="/js/commons.js"></script>
+</head>
+<body>
+<h1 class="title"> Presences in this classroom</h1>
+<div class="center">
+    <div class="search">
+        <input type="search" id="searchPersons" th:attr="data-id=${id}" placeholder="Search student">
+        <div class="center">
+            <a class="button"  href="#" onclick="searchStudentsPresence()">Search</a>
+        </div>
+    </div>
+</div>
+<div class="space">
+
+</div>
+
+
+<table border=1>
+    <caption>Presences</caption>
+    <tr>
+        <th>
+            Student name
+        </th>
+        <th th:each="date: ${dates}" th:text="${date}">
+        </th>
+
+    </tr>
+    <th:block th:each="student :${students}">
+        <tr>
+            <td th:text="${student.getKey()}">
+                A
+            </td>
+            <td th:each="presence:${student.getValue()}" th:text="${presence.asP()}"></td>
+        </tr>
+    </th:block>
+
+
+</table>
+<div class="line">
+    <a class="button" th:href="'/teacher/classroom/'+${id}+'/presences'+${prevPageLink}" th:if="${!prevPageLink.isEmpty()}">Prev</a>
+    <p th:text="'Current page:'+${currentPage}"></p>
+    <p th:text="'Total pages:'+${totalPages}"></p>
+    <a class="button" th:href="'/teacher/classroom/'+${id}+'/presences'+${nextPageLink}" th:if="${!nextPageLink.isEmpty()}">Next</a>
+
+</div>
+
+
+</body>
+</html>

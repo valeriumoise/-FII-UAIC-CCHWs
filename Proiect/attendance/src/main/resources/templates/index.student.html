@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body>
+
+<h2 class="title">Join classroom</h2>
+<div class="center">
+    <form class="search" action="#" th:action="@{/student/classroom/join}" th:object="${join}" method="post">
+        <p>Code: <input type="text" th:field="*{code}"/></p>
+        <button type="submit"><a class="button">Submit</a></button>
+        <button type="reset"><a class="button">Reset</a></button>
+
+    </form>
+</div>
+
+
+<h1>Classroom that you joined</h1>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Owner</td>
+        <td>Description</td>
+        <td>Open</td>
+    </tr>
+    <tr th:each="classroom: ${classroomsJoined}">
+        <td th:text="${classroom.getName()}"></td>
+        <td th:text="${classroom.getAuthor()}"></td>
+        <td th:text="${classroom.getDescription()}"></td>
+        <td><a class="button" th:href="${classroom.getLink()}">Open</a></td>
+
+    </tr>
+</table>
+
+</body>
+</html>

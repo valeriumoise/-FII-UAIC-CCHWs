@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Classroom '+${classroom.getName()}">Classroom </title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <script src="/js/commons.js"></script>
+</head>
+<body>
+<div class="path-container">
+    <a href="/" class="path">/classrooms/</a>
+    <a class="pathActive" th:text="${classroom.getName()}">classroomName</a>
+</div>
+<h1 class="title" th:text="'Name: '+${classroom.getName()}">Name:</h1>
+
+<div>
+    <h3 th:text="'Description: '+${classroom.getDescription()}">Description:</h3>
+    <h3 th:text="'Join code: '+${classroom.getCode()}">Description:</h3>
+    <h3 th:text="'Number of students: '+ ${noStudents}">Number of students: </h3>
+</div>
+<div class="top-container">
+
+    <div class="container-right">
+        <h3 class="title">Operations</h3>
+        <a class="button" style="text-align: center" th:href="'/report/'+${classroom.getId()}">Generate new report</a>
+        <a class="button" style="text-align: center" th:href="${classroom.getLastReport()}"
+           th:if="${!classroom.getLastReport().isEmpty()}">Get last report generated</a>
+        <a class="button" th:href="'/teacher/classroom/'+${classroom.getId()+'/presences'}">View Presences of this
+            classroom</a>
+        <a class="button" th:href="'/teacher/classroom/'+${classroom.getId()+'/notes'}">View notes of this
+            classroom</a>
+        <div>
+            <input type="date" required id="date-presence">
+            <a class="button" target="_blank" id="id" th:attr="data-to='/classroom/code/'+${classroom.getId()}"
+               onclick="makePresence()">Make
+                Presence</a>
+        </div>
+        <a class="button" th:href="'/teacher/actions/classroom/'+${classroom.getId()}">Delete this
+            classroom</a>
+    </div>
+    <div class="new-presence">
+        <h1>Add manual presence</h1>
+        <form action="#" th:action="'/teacher/actions/classroom/'+${classroom.getId()}+'/presence'"
+              th:object="${newPresence}"
+              method="post">
+            <label for="student-email">Student email</label>
+            <input th:field="*{email}" id="student-email" th:type="email" required>
+            <label for="student-date">On date</label>
+            <input id="student-date" th:type="date" th:field="*{date}" required>
+            <button type="submit"><a class="button">Add presence</a></button>
+        </form>
+    </div>
+</div>
+
+
+<h1 class="title">Students in this classroom</h1>
+<div class="center">
+    <div class="search">
+        <input type="search" id="searchPersons" th:attr="data-id=${classroom.getId()}" placeholder="Search student">
+        <div class="center">
+            <a class="button" href="#" onclick="searchStudents()">Search</a>
+        </div>
+    </div>
+</div>
+
+
+<p th:text="'Number of students found: '+ ${students.size()}">Number of students found: </p>
+<table>
+    <tr>
+        <td>First name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="student: ${students}">
+        <td th:text="${student.getFirstName()}"></td>
+        <td th:text="${student.getLastName()}"></td>
+        <td th:text="${student.getEmail()}"></td>
+        <td>
+            <a class="button"
+               th:href="'/teacher/actions/classroom/'+${classroom.getId()}+'/student/delete/'+${student.getId()}">Delete</a>
+        </td>
+    </tr>
+</table>
+<div class="line">
+    <a class="button" href="#" th:href="'/teacher/classroom/'+${classroom.getId()} +${prevPageLink}"
+       th:if="${!prevPageLink.isEmpty()}">Previous</a>
+    <p th:text="'Current page:'+${currentPage}"></p>
+    <p th:text="'Total pages:'+${totalPages}"></p>
+    <a class="button" href="#" th:href="'/teacher/classroom/'+${classroom.getId()}+${nextPageLink}"
+       th:if="${!nextPageLink.isEmpty()}">Next</a>
+</div>
+
+
+</body>
+<script>
+    function sendDelete() {
+        var el = document.getElementById("delete");
+        console.log(el.dataset.delete);
+        fetch(el.dataset.delete, {
+            method: "DELETE"
+        }).then(window.location.replace("/"));
+
+    }
+
+    // setTimeout(() => window.location.replace("/teacher/classroom/5ec25f21a692a4426f80ab18"), 5000);
+    function makePresence() {
+        let item = document.getElementById("date-presence").value;
+        if (item !== null && item.length !== 0) {
+            let id = document.getElementById("id").dataset.to;
+            window.location.replace(id + "/" + getFormattedDate(new Date(item)));
+        }
+    }
+
+    function getFormattedDate(date) {
+        var year = date.getFullYear();
+
+        var month = (1 + date.getMonth()).toString();
+        month = month.length > 1 ? month : '0' + month;
+
+        var day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+
+        return day + '.' + month + '.' + year;
+    }
+
+</script>
+</html>
