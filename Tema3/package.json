@@ -17,7 +17,7 @@
     "@google-cloud/firestore": "^3.7.2",
     "@google-cloud/storage": "^4.7.0",
     "@google-cloud/vision": "^1.11.0",
-    "firebase-admin": "^8.10.0",
+    "firebase-admin": "^11.4.1",
     "formidable": "^1.2.2",
     "multiparty": "^4.2.1",
     "readable-stream": "latest"
